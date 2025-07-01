@@ -14,25 +14,25 @@ project/
 
 ## Git Tutorial
 
-''' bash
+``` bash
 git clone https://github.com/locdeng/resume-video-generator-andevaluator.git
-'''
+```
 
-'''bash
+```bash
 git branch -a  # kiểm tra toàn bộ branch 
-'''
+```
 
-'''bash
+```bash
 git checkout -b [your branch name] origin/[your branch name]  # tạo branch của mình ở local và chuyển vào làm  
-'''
+```
 
-'''bash
+```bash
 git branch   # kiểm tra xem đang ở branch, nhay hiện tại sẽ có dấu * trước tên 
-'''
+```
 
-'''bash
+```bash
 # Sau khi đã làm xong thì push lên lại nhánh của mình
 git add .
 git commit -m "your commit"
 git push origin [your branch name]
-'''
+```
