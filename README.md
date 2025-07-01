@@ -37,7 +37,7 @@ git checkout -b [your branch name] origin/[your branch name]  # tạo branch c�
 ```
 
 ```bash
-git branch   # kiểm tra xem đang ở branch, nhay hiện tại sẽ có dấu * trước tên 
+git branch   # kiểm tra xem đang ở branch, nhánh hiện tại sẽ có dấu * trước tên 
 ```
 
 ```bash
