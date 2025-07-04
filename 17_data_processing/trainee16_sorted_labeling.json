@@ -1,0 +1,505 @@
+{
+  "trainee": "16",
+  "id": {
+    "16_01_interview_01_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_02_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_03_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_04_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_05_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_06_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_07_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_01_interview_08_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_09_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_01_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_02_interview_01_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_02_interview_02_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_02_interview_03_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_02_interview_04_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_02_interview_05_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_02_interview_06_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_02_interview_07_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_02_interview_08_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_02_interview_09_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_02_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_03_interview_01_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_03_interview_02_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_03_interview_03_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_03_interview_04_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_03_interview_05_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_03_interview_06_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_03_interview_07_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_03_interview_08_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_03_interview_09_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_03_interview_10_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_04_interview_01_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_04_interview_02_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_04_interview_03_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_04_interview_04_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_04_interview_05_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_04_interview_06_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_04_interview_07_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_04_interview_08_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_04_interview_09_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_04_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_05_interview_01_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_05_interview_02_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_05_interview_03_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_05_interview_04_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_05_interview_05_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_05_interview_06_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_05_interview_07_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_05_interview_08_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_05_interview_09_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_05_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_06_interview_01_jpg": [
+      {
+        "emotion": "surprise"
+      }
+    ],
+    "16_06_interview_02_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_06_interview_03_jpg": [
+      {
+        "emotion": "uncomfortable"
+      }
+    ],
+    "16_06_interview_04_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_06_interview_05_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_06_interview_06_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_06_interview_07_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_06_interview_08_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_06_interview_09_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_06_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_01_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_07_interview_02_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_03_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_04_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_05_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_06_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_07_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_07_interview_08_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_09_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_07_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_08_interview_01_jpg": [
+      {
+        "emotion": "uncomfortable"
+      }
+    ],
+    "16_08_interview_02_jpg": [
+      {
+        "emotion": "objects"
+      }
+    ],
+    "16_08_interview_03_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_08_interview_04_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_08_interview_05_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_08_interview_06_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_08_interview_07_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_08_interview_08_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_08_interview_09_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_08_interview_10_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_09_interview_01_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_09_interview_02_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_09_interview_03_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_09_interview_04_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_09_interview_05_jpg": [
+      {
+        "emotion": "uncomfortable"
+      }
+    ],
+    "16_09_interview_06_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_09_interview_07_jpg": [
+      {
+        "emotion": "anxiety"
+      }
+    ],
+    "16_09_interview_08_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_09_interview_09_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_09_interview_10_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_10_interview_01_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_10_interview_02_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_10_interview_03_jpg": [
+      {
+        "emotion": "happy"
+      }
+    ],
+    "16_10_interview_04_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_10_interview_05_jpg": [
+      {
+        "emotion": "sad"
+      }
+    ],
+    "16_10_interview_06_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_10_interview_07_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_10_interview_08_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ],
+    "16_10_interview_09_jpg": [
+      {
+        "emotion": "neutral"
+      }
+    ],
+    "16_10_interview_10_jpg": [
+      {
+        "emotion": "angry"
+      }
+    ]
+  }
+}
