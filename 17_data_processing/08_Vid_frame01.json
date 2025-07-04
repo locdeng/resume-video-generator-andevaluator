@@ -1,0 +1,37 @@
+[{
+  "trainee": "8",
+  "id": {
+    "01": {
+      "key_frame_01
+      ": {
+        "key_points": {
+          "left_shoulder": {
+            "x": 410,
+            "y": 400
+          },
+          "right_shoulder": {
+            "x": 950,
+            "y": 400
+          },
+          "nose": {
+            "x": 685,
+            "y": 280
+          },
+          "left_eye": {
+            "x": 640,
+            "y": 260
+          },
+          "right_eye": {
+            "x": 730,
+            "y": 260
+          },
+          "mouth": {
+            "x": 685,
+            "y": 320
+          }
+        },
+        "emotion": "기쁨"
+      }
+    }
+  }
+}]
