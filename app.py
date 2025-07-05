@@ -1,93 +1,83 @@
-# Streamlit UI 
-# ------------------------------
-# app.py
-# KoGPT 자기소개서 / 이력서 Generator
-# ------------------------------
-
+from openai import OpenAI
 import streamlit as st
-from transformers import AutoTokenizer, AutoModelForCausalLM
+client = OpenAI(
+    base_url="https://api.together.xyz/v1",
+    api_key="af95f7404466444675d930ead2e9b67a8bfe3b3e2d8d0d16501a74107fa512d4"
+)
 
-# ------------------------------
-# Load model & tokenizer
-# ------------------------------
-@st.cache_resource
-def load_kogpt():
-    tokenizer = AutoTokenizer.from_pretrained("kakaobrain/kogpt")
-    model = AutoModelForCausalLM.from_pretrained("kakaobrain/kogpt")
-    return tokenizer, model
+st.title("AI 이력서 생성기 ")
 
-tokenizer, model = load_kogpt()
+tabs = st.tabs(["1️⃣ 인적 사항", "2️⃣ 학력사항", "3️⃣ 경력사항", "4️⃣ 기술 및 활동", "5️⃣ 이력서 생성"])
 
-# ------------------------------
-# Streamlit UI
-# ------------------------------
-st.title("🇰🇷 KoGPT 자기소개서 / 이력서 생성기")
-st.markdown("""
-한국어 입력 정보를 바탕으로 **자기소개서**나 **이력서**를 AI가 자동으로 작성합니다.  
-아래에 정보를 입력하고 버튼을 눌러 보세요!
-""")
+with tabs[0]:
+    st.header("1️⃣ 인적 사항 입력")
+    이름 = st.text_input("이름")
+    생년월일 = st.text_input("생년월일 (YYYY-MM-DD)")
+    이메일 = st.text_input("이메일")
+    연락처 = st.text_input("연락처")
+    주소 = st.text_input("주소")
 
-st.sidebar.title("🛠️ 옵션")
-max_tokens = st.sidebar.slider("생성 최대 길이", 100, 1024, 512, step=50)
-temperature = st.sidebar.slider("창의성 (Temperature)", 0.5, 1.5, 0.8, step=0.1)
+with tabs[1]:
+    st.header("2️⃣ 학력사항 입력")
+    학교 = st.text_input("학교명")
+    전공 = st.text_input("전공")
+    학력기간 = st.text_input("기간 (YYYY/MM - YYYY/MM)")
+    학점 = st.text_input("학점")
 
-# ------------------------------
-# User Inputs
-# ------------------------------
-doc_type = st.selectbox("문서 종류 선택:", ["자기소개서", "이력서"])
-name = st.text_input("이름:")
-age = st.text_input("나이:")
-skills = st.text_area("보유 기술/역량:")
-experience = st.text_area("경력 사항:")
-goal = st.text_area("목표/지원 동기:")
+with tabs[2]:
+    st.header("3️⃣ 경력사항 입력")
+    경력사항 = st.text_area("경력사항")
 
-# ------------------------------
-# Prompt Builder
-# ------------------------------
-def build_prompt(doc_type, name, age, skills, experience, goal):
-    prompt = f"""
-아래 정보를 바탕으로 {doc_type}를 한국어로 자연스럽게 작성해 주세요.
+with tabs[3]:
+    st.header("4️⃣ 기술 및 활동 입력")
+    기술역량 = st.text_area("기술 및 역량")
+    자격증 = st.text_area("자격증")
+    기타활동 = st.text_area("기타 활동/수상내역")
 
-- 이름: {name}
-- 나이: {age}
-- 보유 기술/역량: {skills}
-- 경력 사항: {experience}
-- 목표/지원 동기: {goal}
+with tabs[4]:
+    st.header("5️⃣ 이력서 생성하기")
+    style = st.selectbox("작성 스타일", ["간결하게", "감성적으로", "전문적으로"])
 
-작성된 {doc_type}:
+    if st.button("AI 이력서 생성하기"):
+        with st.spinner("AI가 이력서를 생성 중입니다..."):
+            prompt = f"""
+다음 정보를 바탕으로 한국어 이력서를 {style} 작성해 주세요:
+
+[인적 사항]
+- 이름: {이름}
+- 생년월일: {생년월일}
+- 이메일: {이메일}
+- 연락처: {연락처}
+- 주소: {주소}
+
+[학력사항]
+- 학교: {학교}
+- 전공: {전공}
+- 기간: {학력기간}
+- 학점: {학점}
+
+[경력사항]
+{경력사항}
+
+[기술 및 활동]
+- 기술 및 역량: {기술역량}
+- 자격증: {자격증}
+- 기타 활동/수상내역: {기타활동}
+
+포맷:
+- 자기소개
+- 학력사항
+- 경력사항
+- 기술 및 역량
+- 기타 활동 및 수상내역
 """
-    return prompt.strip()
 
-# ------------------------------
-# Generation Button
-# ------------------------------
-if st.button("✅ 생성하기"):
-    if not name or not age:
-        st.warning("⚠️ 이름과 나이를 입력해 주세요!")
-    else:
-        with st.spinner("KoGPT가 문서를 생성 중입니다... 잠시만 기다려 주세요."):
-            user_prompt = build_prompt(doc_type, name, age, skills, experience, goal)
-            
-            inputs = tokenizer.encode(user_prompt, return_tensors="pt")
-            
-            output = model.generate(
-                inputs,
-                max_length=max_tokens,
-                do_sample=True,
-                top_p=0.95,
-                temperature=temperature,
-                pad_token_id=tokenizer.eos_token_id
+            response = client.chat.completions.create(
+                model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",  # Ví dụ model together.ai mà bạn kiểm tra được quyền
+                messages=[
+                    {"role": "system", "content": "당신은 한국어 이력서 작성 전문가입니다."},
+                    {"role": "user", "content": prompt}
+                ]
             )
-            
-            result_text = tokenizer.decode(output[0], skip_special_tokens=True)
-            # Prompt까지 포함된 결과가 나오므로 잘라서 깔끔하게
-            result_only = result_text[len(user_prompt):].strip()
-            
-            st.success(f"🎉 {doc_type} 생성 완료!")
-            st.text_area("✍️ 생성된 문서", value=result_only, height=300)
-
-# ------------------------------
-# Footer
-# ------------------------------
-st.markdown("---")
-st.caption("🛠️ Made with KakaoBrain KoGPT + Streamlit")
+            st.success("✅ 이력서 생성 완료!")
+            st.markdown(response.choices[0].message.content)
