@@ -1,0 +1,11 @@
+# python==3.9.12
+torch
+transformers
+streamlit
+pandas==2.3.0
+scikit-learn
+numpy==1.24.4
+sentencepiece
+datasets
+tqdm
+accelerate 
