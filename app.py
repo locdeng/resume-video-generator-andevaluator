@@ -66,6 +66,7 @@ def run_resume_generator():
                     경력사항, 기술역량, 자격증, 기타활동
                 )
                 result = about_me_gen.generate_text(prompt,"deepseek/deepseek-r1:free")
+                # result = about_me_gen.generate_text(prompt, "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free")
                 st.success("✅ 이력서 생성 완료!")
                 st.markdown(result)
 
@@ -154,6 +155,7 @@ def run_cover_letter():
             #     st.subheader("✅ 생성된 Prompt (LLM Input)")
             #     st.code(prompt, language="markdown")
             result = about_me_gen.generate_text(prompt, "google/gemma-3-27b-it:free")
+            # result = about_me_gen.generate_text(prompt, "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free")
             st.success("✅ 자기소개서 생성 완료!")
             st.markdown(result)
             
