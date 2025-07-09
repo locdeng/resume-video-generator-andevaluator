@@ -1,10 +1,10 @@
 import streamlit as st
 import about_me_gen 
 from streamlit_option_menu import option_menu
-import fitz
-from PIL import Image
+import fitz #PyMuPDF
+# from PIL import Image
 import pytesseract
-import pdf2image
+# import pdf2image
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
@@ -65,8 +65,8 @@ def run_resume_generator():
                     학교, 전공, 학력기간, 학점,
                     경력사항, 기술역량, 자격증, 기타활동
                 )
-                result = about_me_gen.generate_text(prompt,"deepseek/deepseek-r1:free")
-                # result = about_me_gen.generate_text(prompt, "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free")
+                # result = about_me_gen.generate_text(prompt,"google/gemini-2.0-flash-exp:free")
+                result = about_me_gen.generate_text_gemini(prompt)
                 st.success("✅ 이력서 생성 완료!")
                 st.markdown(result)
 
@@ -154,8 +154,8 @@ def run_cover_letter():
             # if show_debug:
             #     st.subheader("✅ 생성된 Prompt (LLM Input)")
             #     st.code(prompt, language="markdown")
-            result = about_me_gen.generate_text(prompt, "google/gemma-3-27b-it:free")
-            # result = about_me_gen.generate_text(prompt, "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free")
+            # result = about_me_gen.generate_text(prompt, "google/gemma-3-27b-it:free")
+            result = about_me_gen.generate_text_gemini(prompt)
             st.success("✅ 자기소개서 생성 완료!")
             st.markdown(result)
             

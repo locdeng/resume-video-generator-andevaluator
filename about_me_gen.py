@@ -1,9 +1,11 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-
+import google.generativeai as genai
 
 load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=api_key)
 openai_client = OpenAI(
     base_url="https://api.together.xyz/v1",
     api_key= os.getenv("OPENAI_API_KEY")
@@ -161,3 +163,7 @@ def generate_text(prompt, model_name):
         ]
     )
     return response.choices[0].message.content
+def generate_text_gemini(prompt):
+    model = genai.GenerativeModel("gemini-2.5-flash")
+    response = model.generate_content(prompt)
+    return response.text

@@ -1,0 +1,14 @@
+streamlit
+transformers
+pydub
+librosa
+noisereduce
+ffmpeg-python
+openai
+python-dotenv
+PyMuPDF
+streamlit-option-menu
+PyMuPDF
+pytesseract
+os
+git+https://github.com/m-bain/whisperX.git
