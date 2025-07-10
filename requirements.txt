@@ -11,4 +11,7 @@ streamlit-option-menu
 PyMuPDF
 pytesseract
 os
+deepface
+opencv-python
+tf-keras
 git+https://github.com/m-bain/whisperX.git
