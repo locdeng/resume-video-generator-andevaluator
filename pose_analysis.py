@@ -71,7 +71,7 @@ def analyze_interview_pose(landmarks, image_shape, prev_wrist_coords=None):
     # else:
     #     result["motion_energy"] = "unknown"
 
-    # return result
+    return result
 
 
 # ----------------------------------------
@@ -113,14 +113,16 @@ def get_pose_counts(pose_analysis_list):
         "posture": Counter(),
         "shoulder_balance": Counter(),
         "arms_position": Counter(),
-        # "motion_energy": Counter()
     }
     for item in pose_analysis_list:
         if not item:
             continue
         for key in counters.keys():
-            counters[key][item.get(key, "unknown")] += 1
+            value = item.get(key)
+            if value and value != "unknown":
+                counters[key][value] += 1
     return counters
+
 
 def get_hand_counts(hand_analysis_list):
     counters = {
@@ -128,6 +130,18 @@ def get_hand_counts(hand_analysis_list):
         # "motion_energy": Counter()
     }
     for item in hand_analysis_list:
+        for key in counters.keys():
+            counters[key][item.get(key, "unknown")] += 1
+    return counters
+def get_face_counts(face_analysis_list):
+    counters = {
+        "eye_state": Counter(),
+        "mouth_state": Counter(),
+        "head_tilt": Counter()
+    }
+    for item in face_analysis_list:
+        if not item:
+            continue
         for key in counters.keys():
             counters[key][item.get(key, "unknown")] += 1
     return counters
@@ -206,6 +220,7 @@ def summarize_session(emotion_labels, pose_analysis_list, hand_analysis_list, fa
     # 2️⃣ Pose
     if pose_analysis_list:
         pose_counters = get_pose_counts(pose_analysis_list)
+        print(pose_analysis_list)
         with st_container.expander("🧍‍♂️ Pose Summary", expanded=False):
             st.markdown("**📌 자세 분석 카운트 및 차트:**")
             for feature, counter in pose_counters.items():

@@ -5,7 +5,7 @@ from about_me_evaluate import resume_predict_tab
 from resume import show_evaluation_ui
 from about_me_gen import run_cover_letter, run_resume_generator
 from video_pose_analyze import run_realtime_analysis, run_uploaded_video_analysis
-
+from voice_analyze import run_transcription_app
 
 st.set_page_config(
     page_title="Job Doumi",
@@ -78,13 +78,13 @@ if st.session_state["menu"] == "Home":
             margin-bottom: 30px;
         }
         .feature-box {
-            background: #F2EFE7 ;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 10px 20px;
+            background: #F2EFE7;
+            padding: 20px 10px;       /* giảm từ 30px xuống */
+            border-radius: 12px;      /* bo tròn ít hơn 15px */
+            margin: 8px 15px;         /* giảm khoảng cách ngoài */
             color: #2b2b2b;
             border: 2px solid white;
-            font-family: 'SF',sans-serif;
+            font-family: 'SF', sans-serif;
             text-align: center;
         }
         .feature-title {
@@ -111,13 +111,13 @@ if st.session_state["menu"] == "Home":
     st.markdown('<div class="intro-title">AI 기반 분석 도구</div>', unsafe_allow_html=True)
     st.markdown('<div class="intro-sub">자소서 평가 및 얼굴 감정/자세 실시간 분석</div>', unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.markdown("""
         <div class="feature-box">
             <div class="feature-title"> 자동 생성</div>
-            AI를 활용해 한국어 이력서와 자소서를 자동으로 생성해 줍니다.  .
+            AI를 활용해 이력서와 자소서를 자동으로 생성해 줍니다.
         </div>
         """, unsafe_allow_html=True)
 
@@ -129,7 +129,7 @@ if st.session_state["menu"] == "Home":
         st.markdown("""
         <div class="feature-box">
             <div class="feature-title"> 자동 평가</div>
-            자기소개서와 이력서를 항목별로 평가하고 피드백을 제공합니다.
+            자소서와 이력서를 항목별로 평가 및 피드백을 제공합니다.
         </div>
         """, unsafe_allow_html=True)
 
@@ -140,13 +140,24 @@ if st.session_state["menu"] == "Home":
     with col3:
         st.markdown("""
         <div class="feature-box">
-            <div class="feature-title"> 동영상 분석</div>
+            <div class="feature-title"> 영상 분석</div>
             웹캠 또는 비디오 파일에서 감정 및 포즈를 분석합니다.
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("동영상 분석으로 이동"):
-            st.session_state["menu"] = "동영상 분석"
+        if st.button("영상 분석으로 이동"):
+            st.session_state["menu"] = "영상 분석"
+            st.rerun()
+    with col4:
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title"> 음성 분석</div>
+            비디오 파일에서 음성을 분석하고 인사이트를 제공합니다.
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button("음성 분석으로 이동"):
+            st.session_state["menu"] = "음성 분석"
             st.rerun()
 
 # -------------------- 4. Page: Resume Evaluation --------------------
@@ -182,10 +193,10 @@ elif st.session_state["menu"] == "자동 평가":
         st.rerun()
 
 # -------------------- 5. Page: Video Analysis --------------------
-elif st.session_state["menu"] == "동영상 분석":
+elif st.session_state["menu"] == "영상 분석":
     # st.title("실시간 감정 + 자세 분석")
     mode = st.radio("모드를 선택하세요:", ["실시간 웹캠", "비디오 파일 업로드"], horizontal=True)
-
+    # mode = st.radio("모드를 선택하세요:", ["실시간 웹캠", "비디오 파일 업로드"], horizontal=True)
     if mode == "실시간 웹캠":
         st.info("웹캠을 사용해 실시간 분석을 시작합니다. 아래에서 허용을 눌러주세요.")
         run_realtime_analysis()
@@ -197,5 +208,11 @@ elif st.session_state["menu"] == "동영상 분석":
         st.session_state["menu"] = "Home"
         st.rerun()
 
+elif st.session_state["menu"] == "음성 분석":
+    run_transcription_app()
+        
+    if st.button("⬅️ 홈으로 돌아가기"):
+        st.session_state["menu"] = "Home"
+        st.rerun()
 
  

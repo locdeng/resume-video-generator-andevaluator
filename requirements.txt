@@ -1,19 +1,25 @@
-streamlit
+torch
 transformers
+streamlit
+pandas
+scikit-learn
+numpy
+# sentencepiece==0.1.99
+datasets
+tqdm
+accelerate 
+PyMuPDF  # import fitz
+docx2txt
+streamlit
 pydub
-librosa
+# librosa>=0.10.0
 noisereduce
 ffmpeg-python
 openai
 python-dotenv
-PyMuPDF
 streamlit-option-menu
-PyMuPDF
 pytesseract
-os
-deepface
 opencv-python
 tf-keras
-streamlit-webrtc
-git+https://github.com/m-bain/whisperX.git
-docx2txt
+google.generativeai
+gdown
