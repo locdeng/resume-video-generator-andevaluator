@@ -176,7 +176,84 @@ def generate_text_gemini(prompt):
 # 이력서 생성 페이지
 # -------------------------------
 def run_resume_generator():
-    st.title("📄 AI 이력서 생성기")
+    st.markdown("""
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">AI 이력서 생성기</div>', unsafe_allow_html=True)
+    
 
     tabs = st.tabs([
         "1️⃣ 인적 사항",
@@ -210,7 +287,7 @@ def run_resume_generator():
     with tabs[4]:
         style = st.selectbox("작성 스타일", ["간결하게", "감성적으로", "전문적으로"])
 
-        if st.button("✅ AI 이력서 생성하기"):
+        if st.button("AI 이력서 생성하기"):
             with st.spinner("AI가 이력서를 생성 중입니다..."):
                 prompt = build_resume_prompt(
                     style, 이름, 생년월일, 이메일, 연락처, 주소,
@@ -219,7 +296,7 @@ def run_resume_generator():
                 )
                 # result = about_me_gen.generate_text(prompt,"google/gemini-2.0-flash-exp:free")
                 result = generate_text_gemini(prompt)
-                st.success("✅ 이력서 생성 완료!")
+                st.success("이력서 생성 완료!")
                 st.markdown(result)
 
 # -------------------------------
@@ -249,28 +326,107 @@ def extract_text_from_file(uploaded_file):
         return ""
     
 def run_cover_letter():
-    st.title("📝 AI 자기소개서 생성기 (맞춤형)")
+    
     st.markdown("""
-    ✅ 이 앱은 **텍스트 기반 PDF**만 지원합니다.  
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">AI 자기소개서 생성 (맞춤형)</div>', unsafe_allow_html=True)
+
+    
+    st.markdown("""
+    이 앱은 **텍스트 기반 PDF**만 지원합니다.  
     - 워드 등에서 작성한 PDF는 OK!  
     - 스캔 이미지 PDF는 지원하지 않습니다.
     """)
 
     with st.form("cover_letter_form"):
-        # st.subheader("✅ 기본 정보")
+        # st.subheader("기본 정보")
         # 이름 = st.text_input("이름")
         # 생년월일 = st.text_input("생년월일 (YYYY-MM-DD)")
 
-        st.subheader("✅ 지원 정보")
+        st.subheader("지원 정보")
         지원회사 = st.text_input("지원 회사명")
         지원직무 = st.text_input("지원 직무명")
         채용공고 = st.text_area("채용 공고 내용 (JD 붙여넣기)")
 
-        st.subheader("✅ 내 기존 이력서 업로드(옵션)")
+        st.subheader("내 기존 이력서 업로드(옵션)")
         uploaded_file = st.file_uploader("이력서 파일 업로드 (.pdf, .txt 가능)", type=["pdf", "txt"])
         기존이력서 = extract_text_from_file(uploaded_file)
 
-        with st.expander("✅ 추가 정보 (옵션)"):
+        with st.expander("추가 정보 (옵션)"):
             학교 = st.text_input("학교명")
             전공 = st.text_input("전공")
             학력기간 = st.text_input("기간 (YYYY/MM - YYYY/MM)")
@@ -287,15 +443,15 @@ def run_cover_letter():
         
         # show_debug = st.checkbox("🪄 Debug 모드 (생성 Prompt 보기)")
 
-        submitted = st.form_submit_button("✅ AI 자기소개서 생성하기")
+        submitted = st.form_submit_button("AI 자기소개서 생성하기")
 
     if submitted:
         with st.spinner("AI가 자기소개서를 생성 중입니다..."):
             기존이력서 = extract_text_from_file(uploaded_file)
             
-            # st.subheader("✅ ✅ 📌 [STEP 1] 업로드한 이력서에서 읽은 텍스트")
+            # st.subheader("[STEP 1] 업로드한 이력서에서 읽은 텍스트")
             if not 기존이력서.strip():
-                st.warning("⚠️ 업로드한 파일에서 텍스트를 읽지 못했습니다. PDF가 이미지만 있거나 비어있을 수 있습니다.")
+                st.warning("업로드한 파일에서 텍스트를 읽지 못했습니다. PDF가 이미지만 있거나 비어있을 수 있습니다.")
 
             prompt = build_cover_letter_prompt(
                 style,
@@ -308,5 +464,5 @@ def run_cover_letter():
             #     st.code(prompt, language="markdown")
             # result = about_me_gen.generate_text(prompt, "google/gemma-3-27b-it:free")
             result = generate_text_gemini(prompt)
-            st.success("✅ 자기소개서 생성 완료!")
+            st.success("자기소개서 생성 완료!")
             st.markdown(result)

@@ -6,6 +6,15 @@ from resume import show_evaluation_ui
 from about_me_gen import run_cover_letter, run_resume_generator
 from video_pose_analyze import run_realtime_analysis, run_uploaded_video_analysis
 
+
+st.set_page_config(
+    page_title="Job Doumi",
+    page_icon="logo_team_new.png",  
+    # layout="wide",  
+    # initial_sidebar_state="expanded"  
+)
+
+
 # -------------------- 1. Menu state setup --------------------
 if "menu" not in st.session_state:
     st.session_state["menu"] = "Home"
@@ -24,33 +33,66 @@ if "menu" not in st.session_state:
 if st.session_state["menu"] == "Home":
     st.markdown("""
         <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
         .intro-title {
             font-size: 48px;
             font-weight: 800;
-            color: #00ffc8;
+            color: #2b2b2b;
             text-align: center;
+            font-family: 'SF',sans-serif;
             margin-top: 30px;
         }
         .intro-sub {
             font-size: 18px;
-            color: #aaa;
+            color: #2b2b2b;
             text-align: center;
+            font-family: 'SF',sans-serif;
             margin-top: -10px;
             margin-bottom: 30px;
         }
         .feature-box {
-            background: #2b2b3c;
+            background: #F2EFE7 ;
             padding: 30px;
             border-radius: 15px;
             margin: 10px 20px;
-            color: white;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
             text-align: center;
         }
         .feature-title {
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #ff4b4b;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
         }
         .stButton>button {
             width: 100%;
@@ -58,12 +100,13 @@ if st.session_state["menu"] == "Home":
             padding: 12px;
             font-size: 16px;
             font-weight: bold;
-            background-color: transparent;
-            border: 2px solid #ff4b4b;
-            color: #ff4b4b;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
         }
         </style>
     """, unsafe_allow_html=True)
+
 
     st.markdown('<div class="intro-title">AI 기반 분석 도구</div>', unsafe_allow_html=True)
     st.markdown('<div class="intro-sub">자소서 평가 및 얼굴 감정/자세 실시간 분석</div>', unsafe_allow_html=True)
@@ -73,25 +116,25 @@ if st.session_state["menu"] == "Home":
     with col1:
         st.markdown("""
         <div class="feature-box">
-            <div class="feature-title"> 이력서 및 자소서 자동 생성</div>
+            <div class="feature-title"> 자동 생성</div>
             AI를 활용해 한국어 이력서와 자소서를 자동으로 생성해 줍니다.  .
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("👉 자소서 및 이력서 자동 생성로 이동"):
-            st.session_state["menu"] = "이력서 및 자소서 자동 생성"
+        if st.button("자동 생성로 이동"):
+            st.session_state["menu"] = "자동 생성"
             st.rerun()
             
     with col2:
         st.markdown("""
         <div class="feature-box">
-            <div class="feature-title"> 이력서 및 자소서 평가</div>
+            <div class="feature-title"> 자동 평가</div>
             자기소개서와 이력서를 항목별로 평가하고 피드백을 제공합니다.
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("👉 이력서 및 자소서 평가로 이동"):
-            st.session_state["menu"] = "이력서 및 자소서 평가"
+        if st.button("자동 평가로 이동"):
+            st.session_state["menu"] = "자동 평가"
             st.rerun()
             
     with col3:
@@ -102,13 +145,13 @@ if st.session_state["menu"] == "Home":
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("👉 동영상 분석으로 이동"):
+        if st.button("동영상 분석으로 이동"):
             st.session_state["menu"] = "동영상 분석"
             st.rerun()
 
 # -------------------- 4. Page: Resume Evaluation --------------------
-elif st.session_state["menu"] == "이력서 및 자소서 자동 생성":
-    st.title("이력서 및 자소서 자동 생성")
+elif st.session_state["menu"] == "자동 생성":
+    # st.title("이력서 및 자소서 자동 생성")
     
     tab1, tab2 = st.tabs(["이력서 자동 생성", "자소서 자동 생성 "])
 
@@ -116,15 +159,15 @@ elif st.session_state["menu"] == "이력서 및 자소서 자동 생성":
         run_resume_generator()
 
     with tab2:
-        run_cover_letter
+        run_cover_letter()
         
     if st.button("⬅️ 홈으로 돌아가기"):
         st.session_state["menu"] = "Home"
         st.rerun()
 
 
-elif st.session_state["menu"] == "이력서 및 자소서 평가":
-    st.title("자소서 및 이력서 평가 시스템")
+elif st.session_state["menu"] == "자동 평가":
+    # st.title("자소서 및 이력서 평가 시스템")
     
     tab1, tab2 = st.tabs(["✍️ 자소서 평가", "📄 이력서 평가"])
 
@@ -140,7 +183,7 @@ elif st.session_state["menu"] == "이력서 및 자소서 평가":
 
 # -------------------- 5. Page: Video Analysis --------------------
 elif st.session_state["menu"] == "동영상 분석":
-    st.title("실시간 감정 + 자세 분석")
+    # st.title("실시간 감정 + 자세 분석")
     mode = st.radio("모드를 선택하세요:", ["실시간 웹캠", "비디오 파일 업로드"], horizontal=True)
 
     if mode == "실시간 웹캠":

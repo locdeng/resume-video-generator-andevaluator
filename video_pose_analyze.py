@@ -230,7 +230,85 @@ def realtime_capture_loop(model, holistic, transform, EMOTION_LABELS, video_cont
 # ⭐ Main
 # ----------------------------------------
 def run_realtime_analysis():
-    st.title("📹 실시간 영상 분석 (Webcam)")
+    
+    st.markdown("""
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">실시간 영상 분석 (Webcam)</div>', unsafe_allow_html=True)
+    
     st.markdown("""
     ✅ Mediapipe Holistic (Face+Pose+Hands)  
     ✅ 감정 분류 (EfficientNet)  
@@ -320,7 +398,85 @@ def run_realtime_analysis():
         generate_llm_insight()
         
 def run_uploaded_video_analysis():
-    st.title("📤 업로드 영상 분석")
+    
+    st.markdown("""
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">업로드 영상 분석</div>', unsafe_allow_html=True)
+    
     st.markdown("""
     ✅ 업로드한 영상 파일을 프레임별로 분석합니다.  
     ✅ Mediapipe Holistic으로 자세/손 제스처/얼굴 감정 분석을 수행합니다.  

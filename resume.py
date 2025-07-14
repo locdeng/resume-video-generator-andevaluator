@@ -168,7 +168,85 @@ def color_grade(val):
     return colors.get(val, "")
 
 def show_evaluation_ui():
-    st.header("📄 이력서 평가 시스템")
+    
+    st.markdown("""
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">이력서 평가 시스템</div>', unsafe_allow_html=True)
+    
     uploaded_file = st.file_uploader("이력서를 업로드하세요 (PDF, DOCX, TXT)", type=["pdf", "docx", "txt"])
 
     if uploaded_file:
@@ -179,8 +257,11 @@ def show_evaluation_ui():
         styled_df = result_df.style.applymap(color_grade, subset=["등급"])
         st.subheader("🔍 평가 결과")
         st.dataframe(styled_df, use_container_width=True)
+
+        csv = result_df.to_csv(index=False).encode('utf-8-sig')
+        st.download_button("결과 CSV 다운로드", data=csv, file_name="resume_evaluation.csv", mime="text/csv")
         
-        with st.expander("📄 Mở xem file CSV"):
+    with st.expander("이력서 평가 수준"):
     
             csv_path = 'resume_standart.csv'  
             try:
@@ -188,6 +269,3 @@ def show_evaluation_ui():
                 st.dataframe(df)
             except FileNotFoundError:
                 st.error(f"Not found: {csv_path}")
-
-        csv = result_df.to_csv(index=False).encode('utf-8-sig')
-        st.download_button("결과 CSV 다운로드", data=csv, file_name="resume_evaluation.csv", mime="text/csv")

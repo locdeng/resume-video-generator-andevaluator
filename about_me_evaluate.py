@@ -13,8 +13,8 @@ def download_model():
         st.info("🔽 모델 파일을 Google Drive에서 다운로드 중입니다...")
         url = "https://drive.google.com/uc?id=1kAmiJNISGAPYtvfQXNg47nWNvC09pWVE"
         gdown.download(url, output=model_path, quiet=True)
-    else:
-        st.success("✅ 모델 파일이 이미 존재합니다.")
+    # else:
+    #     st.success("✅ 모델 파일이 이미 존재합니다.")
 
 download_model()
 
@@ -47,6 +47,85 @@ def predict(text, subcat):
 
 # Tab UI
 def resume_predict_tab():
+    
+    st.markdown("""
+        <style>
+        
+         @font-face {
+            font-family: 'SB_B';
+            src: url('assets/fonts/SF.ttf') format('truetype');
+        }
+        
+                /* Toàn bộ trang (nền đen) */
+        html, body {
+            background-color: #f0e8db !important;
+            font-family: 'SF',sans-serif;
+        }
+
+        /* Nền vùng nội dung */
+        [data-testid="stAppViewContainer"] {
+            background-color: #f0e8db !important;
+        }
+
+        /* Nền container chính */
+        [data-testid="stAppViewBlockContainer"] {
+            background-color: #f0e8db !important;
+            padding: 0rem 1rem; /* giảm padding nếu muốn */
+            max-width: 100% !important;  /* full width */
+        }
+
+        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        [data-testid="stSidebar"] {
+            background-color: #77C9D4 !important;
+        }
+        .intro-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: 30px;
+        }
+        .intro-sub {
+            font-size: 18px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'SF',sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            background: #F2EFE7 ;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px 20px;
+            color: #2b2b2b;
+            border: 2px solid white;
+            font-family: 'SF',sans-serif;
+            text-align: center;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'SF',sans-serif;
+            color: #2b2b2b;
+        }
+        .stButton>button {
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #F2EFE7;
+            border: 2px solid white;
+            color: #2b2b2b;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="intro-title">자소서 평가 시스템</div>', unsafe_allow_html=True)
+    
     
     categories = {'성장과정' : ['가치관', '가족/환경의 영향', '전환점/특별한 경험'], 
                   '성격의 장단점': ['정점 기술', '단점 기술 및 극복 노력', '대인관계 성향'], 
