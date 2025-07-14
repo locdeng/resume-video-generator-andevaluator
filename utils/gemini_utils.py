@@ -20,7 +20,7 @@ def make_prompt_from_features(features):
     )
     return prompt
 
-def build_insight_prompt_ko(pose_counts, hand_counts, emotion_counts):
+def build_insight_prompt_ko(pose_counts, hand_counts, emotion_counts,face_counts):
     prompt = "당신은 면접 분석 전문가입니다. 아래는 면접 영상에서 지원자의 자세(Pose), 손 제스처(Hand Gesture), 감정(Emotion)에 대한 통계 수치입니다.\n\n"
 
     prompt += "⭐ Pose Summary:\n"
@@ -35,6 +35,10 @@ def build_insight_prompt_ko(pose_counts, hand_counts, emotion_counts):
     for k, v in emotion_counts.items():
         prompt += f"- {k}: {v} 프레임\n"
 
+    prompt += "\n⭐ Face:\n"
+    for k, v in face_counts.items():
+        prompt += f"- {k}: {v} 프레임\n"
+        
     prompt += (
         "\n\n👉 위 데이터를 기반으로 **한국어로 4~6문장 정도의 간결한 인사이트 분석**을 작성해주세요. "
         "✅ 문장은 각 항목별로 보기 쉽게 **• (bullet-point) 형태**로 구분해 주세요. "

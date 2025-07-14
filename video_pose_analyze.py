@@ -21,9 +21,10 @@ def generate_llm_insight():
     pose_counts = get_pose_counts(st.session_state.get("pose_analysis", []))
     hand_counts = get_hand_counts(st.session_state.get("hand_analysis", []))
     emotion_counts = Counter(st.session_state.get("emotion_labels", []))
+    face_counts = get_face_counts(st.session_state.get("face_analysis",[]))
 
     # Build prompt
-    prompt = build_insight_prompt_ko(pose_counts, hand_counts, emotion_counts)
+    prompt = build_insight_prompt_ko(pose_counts, hand_counts, emotion_counts,face_counts)
 
     # 👉 Optionally: Call LLM
     response =  generate_text_gemini(prompt)
@@ -362,7 +363,7 @@ def run_realtime_analysis():
     model.device = DEVICE
 
     transform = transforms.Compose([
-        transforms.Resize((224, 224)),
+        transforms.Resize((224,224)),
         transforms.ToTensor()
     ])
 
@@ -386,6 +387,7 @@ def run_realtime_analysis():
 
         if st.session_state["pose_analysis"] or st.session_state["hand_analysis"]:
             from pose_analysis import summarize_session
+            
             summarize_session(
                 st.session_state["emotion_labels"],
                 st.session_state["pose_analysis"],
@@ -501,7 +503,7 @@ def run_uploaded_video_analysis():
     if uploaded_file is None:
         st.info("✅ 분석할 영상을 업로드해주세요.")
         return
-
+    
     # ⭐ 비디오 저장
     video_path = "temp_uploaded_video.mp4"
     with open(video_path, "wb") as f:
@@ -546,7 +548,7 @@ def run_uploaded_video_analysis():
         analyze_uploaded_video(video_path, model, holistic, transform, EMOTION_LABELS)
 
         st.session_state["running"] = False
-
+    insight_container = st.container()
     # ⭐ 결과 요약
     if not st.session_state.get("running", False):
         if (st.session_state.get("emotion_labels") or 
@@ -560,6 +562,10 @@ def run_uploaded_video_analysis():
                 st.session_state["face_analysis"],
                 st.container()
             )
+    if insight_container.button("🪄 인사이트 생성"):
+        generate_llm_insight()
+        
+        
 def analyze_uploaded_video(video_path, model, holistic, transform, EMOTION_LABELS):
     st.info("✅ 업로드된 비디오를 분석 중입니다...")
 
