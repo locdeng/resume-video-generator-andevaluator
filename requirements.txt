@@ -4,7 +4,7 @@ streamlit
 pandas
 scikit-learn
 numpy
-sentencepiece
+sentencepiece==0.1.99
 datasets
 tqdm
 accelerate 
@@ -12,7 +12,7 @@ PyMuPDF  # import fitz
 docx2txt
 streamlit
 pydub
-librosa
+# librosa>=0.10.0
 noisereduce
 ffmpeg-python
 openai
