@@ -157,15 +157,15 @@ def build_cover_letter_prompt(
  # [인적 사항]
  # - 이름: {이름}
  # - 생년월일: {생년월일}
-def generate_text(prompt, model_name):
-    response = client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {"role": "system", "content": "당신은 한국어 이력서 작성 전문가입니다."},
-            {"role": "user", "content": prompt}
-        ]
-    )
-    return response.choices[0].message.content
+# def generate_text(prompt, model_name):
+#     response = client.chat.completions.create(
+#         model=model_name,
+#         messages=[
+#             {"role": "system", "content": "당신은 한국어 이력서 작성 전문가입니다."},
+#             {"role": "user", "content": prompt}
+#         ]
+#     )
+#     return response.choices[0].message.content
 def generate_text_gemini(prompt):
     model = genai.GenerativeModel("gemini-2.5-flash")
     response = model.generate_content(prompt)
@@ -466,4 +466,4 @@ def run_cover_letter():
             result = generate_text_gemini(prompt)
             st.success("자기소개서 생성 완료!")
             st.markdown(result)
->>>>>>> 16
+

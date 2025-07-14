@@ -651,4 +651,4 @@ def analyze_uploaded_video(video_path, model, holistic, transform, EMOTION_LABEL
 
     cap.release()
     st.success("✅ 비디오 분석이 완료되었습니다!")
->>>>>>> 16
+
