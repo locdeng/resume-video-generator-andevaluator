@@ -4,7 +4,7 @@ streamlit
 pandas
 scikit-learn
 numpy
-sentencepiece==0.1.99
+# sentencepiece==0.1.99
 datasets
 tqdm
 accelerate 
@@ -21,5 +21,4 @@ streamlit-option-menu
 pytesseract
 opencv-python
 tf-keras
-streamlit-webrtc
 google.generativeai
