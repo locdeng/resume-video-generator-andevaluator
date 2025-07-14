@@ -22,3 +22,4 @@ pytesseract
 opencv-python
 tf-keras
 google.generativeai
+gdown
