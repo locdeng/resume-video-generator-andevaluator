@@ -19,7 +19,6 @@ openai
 python-dotenv
 streamlit-option-menu
 pytesseract
-deepface
 opencv-python
 tf-keras
 streamlit-webrtc
