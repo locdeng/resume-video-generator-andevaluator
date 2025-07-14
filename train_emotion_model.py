@@ -6,7 +6,7 @@ from torchvision import datasets, transforms
 from efficientnet_pytorch import EfficientNet
 from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
-
+#cuo
 # ===== Info =====
 DATA_DIR = 'dataset/train'
 BATCH_SIZE = 32
