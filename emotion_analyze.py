@@ -1,1 +1,0 @@
-# 동영상에 있는 사람의 감정 분석 -> OpenFace이나 Roboflow이나 YOLOv8이나 Teachable Machine이나 FER+이나 FER-2013을 이용한 감정 분석

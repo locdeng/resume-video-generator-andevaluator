@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#이력서 및 자소서 생성 -> KoGPT API를 이용한 이력서 및 자소서 생성
-=======
 from openai import OpenAI
 from dotenv import load_dotenv
 import os

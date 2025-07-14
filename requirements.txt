@@ -16,3 +16,4 @@ opencv-python
 tf-keras
 streamlit-webrtc
 git+https://github.com/m-bain/whisperX.git
+docx2txt

@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# 동영상 자세 평가 및 분석 -> OpenPose를 이용한 자세 추정 및 분석
-=======
+
 import streamlit as st
 import cv2
 import torch
