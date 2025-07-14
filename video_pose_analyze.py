@@ -566,7 +566,7 @@ def analyze_uploaded_video(video_path, model, holistic, transform, EMOTION_LABEL
     cap = cv2.VideoCapture(video_path)
     frame_count = 0
     prev_wrist_coords = None
-
+    insight_container = st.container()
     # ⭐ 프레임 출력할 공간
     frame_placeholder = st.empty()
 
@@ -651,4 +651,6 @@ def analyze_uploaded_video(video_path, model, holistic, transform, EMOTION_LABEL
 
     cap.release()
     st.success("✅ 비디오 분석이 완료되었습니다!")
-
+    
+    if insight_container.button("🪄 인사이트 생성"):
+        generate_llm_insight()
