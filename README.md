@@ -56,3 +56,18 @@ streamlit run app_final.py
 
 [![이력서 자동 생성](https://img.youtube.com/vi/RraWgu1p2tU/0.jpg)](https://youtu.be/RraWgu1p2tU)
 
+[![자소서 자동 생성](https://img.youtube.com/vi/I17WnnDH0XQ/0.jpg)](https://youtu.be/I17WnnDH0XQ)
+
+이력서 및 자기소개서 자동 평가
+
+[![이력서 자동 평가](https://img.youtube.com/vi/WadoYxlbYwY/0.jpg)](https://youtu.be/WadoYxlbYwY)
+
+[![자소서 자동 생성](https://img.youtube.com/vi/c7F-3nxsyys/0.jpg)](https://youtu.be/c7F-3nxsyys)
+
+감정 분석
+
+[![감정 분석](https://img.youtube.com/vi/mhEw9oLvvbk/0.jpg)](https://youtu.be/mhEw9oLvvbk)
+
+[![감정 분석](https://img.youtube.com/vi/-yiNEdBY8ug/0.jpg)](https://youtu.be/-yiNEdBY8ug)
+
+
