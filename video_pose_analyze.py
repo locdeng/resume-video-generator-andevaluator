@@ -259,7 +259,7 @@ def run_realtime_analysis():
             max-width: 100% !important;  /* full width */
         }
 
-        /* Optional: Sidebar nếu bạn muốn cũng nền đen */
+        /* Optional: Sidebar cũng nền đen */
         [data-testid="stSidebar"] {
             background-color: #77C9D4 !important;
         }
