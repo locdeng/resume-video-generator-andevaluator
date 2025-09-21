@@ -42,11 +42,11 @@ NLP 파이프라인 (이력서/자기소개서)
 
 3) 설치 방법
 
-'''bash
+```bash
 git clone https://github.com/locdeng/resume-video-generator-andevaluator.git
 cd resume-video-generator-andevaluator
 
 pip install -r requirements.txt
 
 streamlit run app_final.py
-'''
+```
