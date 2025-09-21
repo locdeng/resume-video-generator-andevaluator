@@ -1,4 +1,4 @@
-### 이력서/자소서 생성기 및 평가기 시스
+## 이력서/자소서 생성기 및 평가기 시스
 
 텍스트 + 비디오 기반 자기소개 및 이력서 생성/평가 시스템
 
@@ -29,19 +29,19 @@ MediaPipe로 신체/얼굴 키포인트 추출 → 자세 안정성, 시선 처�
 
 ## 2) 시스템 아키텍처
 
-## 전체 UI 흐름
+### 전체 UI 흐름
 
 
 <img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/645aadf9-8954-42e3-83b8-8a1fd7b9f727" />
 
 
-## NLP 파이프라인 (이력서/자기소개서)
+### NLP 파이프라인 (이력서/자기소개서)
 
 
 <img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/e4a79479-160d-4a30-a5d1-1058e5ba4b32" />
 
 
-## 비디오 파이프라인 (감정 + 자세)
+### 비디오 파이프라인 (감정 + 자세)
 
 
 <img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/a76caa02-5aa1-4646-9d7e-e5c3e837ae6c" />
@@ -60,13 +60,13 @@ streamlit run app_final.py
 ## 4) Demo Result video
 
 
-## Main Screen
+### Main Screen
 
 
 <img width="1294" height="632" alt="Image" src="https://github.com/user-attachments/assets/fa2db102-e7b4-4094-b113-46dbcb7a9e31" />
 
 
-## 이력서 및 자기소개서 자동 생성
+### 이력서 및 자기소개서 자동 생성
 
 
 [![이력서 자동 생성](https://img.youtube.com/vi/RraWgu1p2tU/0.jpg)](https://youtu.be/RraWgu1p2tU)
@@ -74,7 +74,7 @@ streamlit run app_final.py
 [![자소서 자동 생성](https://img.youtube.com/vi/I17WnnDH0XQ/0.jpg)](https://youtu.be/I17WnnDH0XQ)
 
 
-## 이력서 및 자기소개서 자동 평가
+### 이력서 및 자기소개서 자동 평가
 
 
 [![이력서 자동 평가](https://img.youtube.com/vi/WadoYxlbYwY/0.jpg)](https://youtu.be/WadoYxlbYwY)
@@ -82,7 +82,7 @@ streamlit run app_final.py
 [![자소서 자동 생성](https://img.youtube.com/vi/c7F-3nxsyys/0.jpg)](https://youtu.be/c7F-3nxsyys)
 
 
-## 감정 분석
+### 감정 분석
 
 
 [![감정 분석](https://img.youtube.com/vi/mhEw9oLvvbk/0.jpg)](https://youtu.be/mhEw9oLvvbk)
