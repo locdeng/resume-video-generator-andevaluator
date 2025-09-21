@@ -1,48 +1,52 @@
-## 📁 Cấu trúc thư mục
+## 이력서/자소서 생성기 및 평가기 시스
 
-project/
+텍스트 + 비디오 기반 자기소개 및 이력서 생성/평가 시스템
 
-├── app.py # Giao diện chính Streamlit
+자기소개서(About Me) 자동 생성: OpenAI API 및 llama 사용
 
-├── about_me_gen.py # Tạo 이력서 자소서 bằng KoGPT
+이력서/자기소개서 평가: KoBERT 기반 분류 모델
 
-├── about_me_evakuate.py # Đánh giá 자소서 + 이력서 bằng KoBERT
+감정 분석: EfficientNet-B4 모델로 얼굴 표정 인식
 
-├── emotion_analyze.py # Phân tích cảm xúc từ video
+자세 분석: MediaPipe를 통한 포즈/키포인트 추출
 
-├── video_pose_analyze.py # Phân tích tư thế từ OpenPose
+Streamlit UI 기반의 인터페이스
 
-├── 17_data_processing/ # Tạo JSON từ 이력서/자소서 (thô) -> tạo 2 files chứa toàn bộ id 1~10 đã labeling của 이력서 và 자소서 dạng json
+1) 주요 기능
 
-├── utils/ # Dùng để labeling
+자기소개서 생성 (About Me Generator):
+OpenAI GPT + llama로 사용자 입력(경험, 기술 등)을 바탕으로 자연스러운 자기소개 생성
 
-│ ├── 이력서_라벨링_기준.json # Tiêu chí đánh giá 이력서 (A–E)
+평가 (Evaluator – KoBERT):
+이력서 및 자기소개서를 업로드 → KoBERT 모델이 A–E 등급 평가 및 피드백 제공
+(평가 기준은 utils/ 폴더 내 JSON 파일에서 정의됨)
 
-│ ├── 자기소개서_라벨링_기준.json # Tiêu chí đánh giá 자소서 (A–E)
+감정 분석 (EfficientNet-B4):
+비디오 프레임 단위로 감정을 추정하고 시간 축에 따른 변화 시각화
 
-├── vid_frame_capture/ # Lưu frames picture và labeling vị trí cơ thể và cảm xúc từ video
+자세 분석 (MediaPipe):
+MediaPipe로 신체/얼굴 키포인트 추출 → 자세 안정성, 시선 처리, 제스처 평가
 
-## Git Tutorial
+2) 시스템 아키텍처
+전체 UI 흐름
 
-``` bash
+<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/645aadf9-8954-42e3-83b8-8a1fd7b9f727" />
+
+NLP 파이프라인 (이력서/자기소개서)
+
+<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/e4a79479-160d-4a30-a5d1-1058e5ba4b32" />
+
+비디오 파이프라인 (감정 + 자세)
+
+<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/a76caa02-5aa1-4646-9d7e-e5c3e837ae6c" />
+
+3) 설치 방법
+
+'''bash
 git clone https://github.com/locdeng/resume-video-generator-andevaluator.git
-```
+cd resume-video-generator-andevaluator
 
-```bash
-git branch -a  # kiểm tra toàn bộ branch 
-```
+pip install -r requirements.txt
 
-```bash
-git checkout -b [your branch name] origin/[your branch name]  # tạo branch của mình ở local và chuyển vào làm  
-```
-
-```bash
-git branch   # kiểm tra xem đang ở đúng branch chưa, nhánh hiện tại sẽ có dấu * trước tên 
-```
-
-```bash
-# Sau khi đã làm xong thì push lên lại nhánh của mình
-git add .
-git commit -m "your commit"
-git push origin [your branch name]
-```
+streamlit run app_final.py
+'''
