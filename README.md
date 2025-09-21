@@ -2,7 +2,7 @@
 
 텍스트 + 비디오 기반 자기소개 및 이력서 생성/평가 시스템
 
-자기소개서(About Me) 자동 생성: OpenAI API 및 llama 사용
+자기소개서(About Me) 자동 생성: gemini 및 llama 사용
 
 이력서/자기소개서 평가: KoBERT 기반 분류 모델
 
@@ -15,7 +15,7 @@ Streamlit UI 기반의 인터페이스
 ## 1) 주요 기능
 
 자기소개서 생성 (About Me Generator):
-OpenAI GPT + llama로 사용자 입력(경험, 기술 등)을 바탕으로 자연스러운 자기소개 생성
+gemini + llama로 사용자 입력(경험, 기술 등)을 바탕으로 자연스러운 자기소개 생성
 
 평가 (Evaluator – KoBERT):
 이력서 및 자기소개서를 업로드 → KoBERT 모델이 A–E 등급 평가 및 피드백 제공
