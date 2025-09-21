@@ -54,5 +54,5 @@ streamlit run app_final.py
 
 이력서 및 자기소개서 자동 생성
 
-[![Demo Video](https://img.youtube.com/vi/<VIDEO_ID>/0.jpg)]([https://youtu.be/<VIDEO_ID>](https://youtu.be/RraWgu1p2tU))
+[![이력서 자동 생성](https://img.youtube.com/vi/6nBLyXFofSI/0.jpg)](https://youtu.be/RraWgu1p2tU)
 
