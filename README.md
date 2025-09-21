@@ -40,7 +40,7 @@ NLP 파이프라인 (이력서/자기소개서)
 
 <img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/a76caa02-5aa1-4646-9d7e-e5c3e837ae6c" />
 
-3) 설치 방법
+3) 이용 방법
 
 ```bash
 git clone https://github.com/locdeng/resume-video-generator-andevaluator.git
@@ -50,3 +50,8 @@ pip install -r requirements.txt
 
 streamlit run app_final.py
 ```
+4) Demo Result video
+
+이력서 및 자기소개서 자동 생성
+[![이력서 자동 생성]]([https://youtu.be/<VIDEO_ID>](https://youtu.be/RraWgu1p2tU))
+
