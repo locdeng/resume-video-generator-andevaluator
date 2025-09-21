@@ -32,19 +32,19 @@ MediaPipe로 신체/얼굴 키포인트 추출 → 자세 안정성, 시선 처�
 ### 전체 UI 흐름
 
 
-<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/645aadf9-8954-42e3-83b8-8a1fd7b9f727" />
+<img width="900" height="846" alt="Image" src="https://github.com/user-attachments/assets/645aadf9-8954-42e3-83b8-8a1fd7b9f727" />
 
 
 ### NLP 파이프라인 (이력서/자기소개서)
 
 
-<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/e4a79479-160d-4a30-a5d1-1058e5ba4b32" />
+<img width="900" height="846" alt="Image" src="https://github.com/user-attachments/assets/e4a79479-160d-4a30-a5d1-1058e5ba4b32" />
 
 
 ### 비디오 파이프라인 (감정 + 자세)
 
 
-<img width="1246" height="846" alt="Image" src="https://github.com/user-attachments/assets/a76caa02-5aa1-4646-9d7e-e5c3e837ae6c" />
+<img width="900" height="846" alt="Image" src="https://github.com/user-attachments/assets/a76caa02-5aa1-4646-9d7e-e5c3e837ae6c" />
 
 
 ## 3) 이용 방법
@@ -63,7 +63,7 @@ streamlit run app_final.py
 ### Main Screen
 
 
-<img width="1294" height="632" alt="Image" src="https://github.com/user-attachments/assets/fa2db102-e7b4-4094-b113-46dbcb7a9e31" />
+<img width="900" height="632" alt="Image" src="https://github.com/user-attachments/assets/fa2db102-e7b4-4094-b113-46dbcb7a9e31" />
 
 
 ### 이력서 및 자기소개서 자동 생성
